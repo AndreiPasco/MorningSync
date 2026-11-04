@@ -10,3 +10,21 @@ MorningSync is a modern digital assistant built with React and Node.js. It combi
 * **RESTful API:** Custom backend endpoints (`GET`, `POST`) for seamless data handling.
 * **Modern Frontend:** Lightning-fast, responsive UI built with React and Vite.
 * **Independent Architecture:** Decoupled client-server model running concurrently.
+
+## Tech Stack
+* **Frontend:** React, Vite
+* **Backend:** Node.js, Express, CORS
+* **Storage:** In-memory data structures (ready for database migration)
+
+## Getting Started
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+* Node.js installed on your local machine.
+
+### 1. Start the Backend Server
+Open a terminal, navigate to the backend directory, and run the server:
+```bash
+cd dashboard-backend
+npm install
+node server.js
