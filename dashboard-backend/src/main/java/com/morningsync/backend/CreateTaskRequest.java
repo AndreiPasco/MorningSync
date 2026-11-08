@@ -1,4 +1,6 @@
 package com.morningsync.backend;
 
-public record CreateTaskRequest(String title) {
+import jakarta.validation.constraints.NotBlank;
+
+public record CreateTaskRequest(@NotBlank String title) {
 }
