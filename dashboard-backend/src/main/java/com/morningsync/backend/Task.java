@@ -33,4 +33,8 @@ public class Task {
     public boolean isCompleted(){
         return completed;
     }
+
+    public void changeStatus(boolean completed){
+        this.completed = completed;
+    }
 }

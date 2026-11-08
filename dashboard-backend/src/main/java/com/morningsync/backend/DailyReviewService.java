@@ -1,6 +1,8 @@
 package com.morningsync.backend;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,17 @@ public class DailyReviewService {
                 savedTask.getTitle(),
                 savedTask.isCompleted()
         );
+    }
+
+    public TaskResponse updateTaskStatus(Long id, UpdateTaskStatusRequest request){
+        Task task =  taskRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Taskul nu exista"
+                ));
+        task.changeStatus(request.completed());
+        Task savedTask = taskRepository.save(task);
+
+        return new TaskResponse(savedTask.getId(), savedTask.getTitle(), savedTask.isCompleted());
     }
 
 }
