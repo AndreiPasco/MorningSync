@@ -1,5 +1,7 @@
 package com.morningsync.backend;
 
-public record TaskResponse(long id, String title, boolean completed) {
+import java.time.LocalDateTime;
+
+public record TaskResponse(long id, String title, boolean completed, LocalDateTime deadline) {
 
 }

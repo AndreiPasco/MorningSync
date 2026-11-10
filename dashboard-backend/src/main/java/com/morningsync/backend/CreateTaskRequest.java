@@ -2,5 +2,7 @@ package com.morningsync.backend;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record CreateTaskRequest(@NotBlank String title) {
+import java.time.LocalDateTime;
+
+public record CreateTaskRequest(@NotBlank String title, LocalDateTime deadline) {
 }

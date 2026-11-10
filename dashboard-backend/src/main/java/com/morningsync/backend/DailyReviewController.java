@@ -1,10 +1,7 @@
 package com.morningsync.backend;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class DailyReviewController {
     @PostMapping("/api/tasks")
     public TaskResponse createTask( @Valid @RequestBody CreateTaskRequest request){
          return dailyReviewService.createTask(request);
+    }
+    
+    @PatchMapping("/api/tasks/{id}")
+    public TaskResponse updateTaskStatus(@PathVariable("id") Long id, @Valid @RequestBody UpdateTaskStatusRequest request){
+        return dailyReviewService.updateTaskStatus(id,request);
     }
 }
