@@ -1,30 +1,40 @@
 # MorningSync
 
-A fast, responsive full-stack web dashboard for task management and daily planning.
+MorningSync is a personal daily planning application designed to help users start their morning with a clear overview of tasks, deadlines, and priorities.
 
-## About the Project
-MorningSync is a modern digital assistant built with React and Node.js. It combines a fluid, real-time task manager with a clean workspace, helping users organize their daily routines efficiently from a single screen. The application utilizes an interactive Vite-generated frontend and bidirectional communication via a custom Express REST API, featuring a scalable architecture ready for external API integrations (such as live weather data).
+The project currently contains a Java and Spring Boot backend. A mobile-friendly frontend and external calendar integrations are planned.
 
 ## Features
-* **Task Management:** Add, track, and manage daily tasks in real-time.
-* **RESTful API:** Custom backend endpoints (`GET`, `POST`) for seamless data handling.
-* **Modern Frontend:** Lightning-fast, responsive UI built with React and Vite.
-* **Independent Architecture:** Decoupled client-server model running concurrently.
+
+- Create tasks with optional deadlines.
+- Mark tasks as completed or pending.
+- Store tasks in a persistent H2 database.
+- Generate a summary with total, pending, overdue, and due-today task counts.
+- Sort tasks by completion status and deadline.
+- Validate incoming requests.
+
+A pending task can be both overdue and due today, so these counts may overlap.
 
 ## Tech Stack
-* **Frontend:** React, Vite
-* **Backend:** Node.js, Express, CORS
-* **Storage:** In-memory data structures (ready for database migration)
 
-## Getting Started
-To get a local copy up and running, follow these steps.
+- Java 21
+- Spring Boot 4.1.2
+- Spring Web MVC
+- Spring Data JPA and Hibernate
+- Bean Validation
+- H2 Database
+- Maven Wrapper
+- JUnit and Mockito
 
-### Prerequisites
-* Node.js installed on your local machine.
 
-### 1. Start the Backend Server
-Open a terminal, navigate to the backend directory, and run the server:
-```bash
-cd dashboard-backend
-npm install
-node server.js
+## Roadmap
+
+- Mobile-friendly user interface
+- User accounts and task ownership
+- Google Calendar integration
+- Explicit time zone handling
+- Morning reminders and notifications
+
+## Project Status
+
+Under active development as a learning project focused on backend development, REST APIs, persistence, and automated testing.
