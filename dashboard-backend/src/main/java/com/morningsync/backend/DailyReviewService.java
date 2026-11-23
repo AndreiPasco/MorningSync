@@ -63,7 +63,7 @@
                         )
            );
 
-            return new DailyReviewResponse("Buna dimineata", tasks.size(),pendingTaskCount,overdueTaskCount,dueTodayTaskCount,tasks);
+            return new DailyReviewResponse("Good Morning!", tasks.size(),pendingTaskCount,overdueTaskCount,dueTodayTaskCount,tasks);
         }
 
         public TaskResponse createTask(CreateTaskRequest request){
