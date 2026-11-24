@@ -1,22 +1,8 @@
 import './App.css'
 import DailyReviewSummary from './components/DailyReviewSummary'
 import { useEffect, useState } from 'react'
-
-type TaskResponse = {
-    id: number
-    title: string
-    completed: boolean
-    deadline: string | null
-}
-
-type DailyReview = {
-    message : string
-    taskCount : number
-    pendingTaskCount : number
-    overdueTaskCount : number
-    dueTodayTaskCount : number
-    list : TaskResponse[]
-}
+import type { DailyReview } from './types/dailyReview'
+import TaskList from './components/TaskList'
 
 function App(){
     const[loading,setLoading] = useState(true)
@@ -71,38 +57,7 @@ function App(){
                         dueTodayTaskCount={review.dueTodayTaskCount}
                     />
 
-                    <section>
-                        <h2> Your tasks </h2>
-                        {review.list.length === 0 ? (
-                            <p>No tasks yet. Your schedule is clear.</p>
-                        ) : (
-                            <ul>
-                                {review.list.map(task => (
-                                    <li key={task.id}>
-                                        <span>{task.title}</span>
-
-                                        <span
-                                            className={`task-status ${
-                                                task.completed ? 'is-completed' : 'is-pending'
-                                            }`}
-                                        >
-                                                {task.completed ? 'Completed' : 'Pending'}
-                                        </span>
-
-                                        {task.deadline !== null && (
-                                            <p>
-                                                Deadline:{' '}
-                                                {new Date(task.deadline).toLocaleString('en-GB', {
-                                                    dateStyle: 'medium',
-                                                    timeStyle: 'short',
-                                                })}
-                                            </p>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </section>
+                    <TaskList tasks={review.list} />
                 </>
             )}
         </main>
